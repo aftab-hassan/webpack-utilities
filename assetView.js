@@ -68,6 +68,9 @@ function createAssetView(baselineJsonContents, prJsonContents){
         assetViewData.push({asset:asset, sizeDifference:sizeDifference, modules: modulesImpacted})
     }
 
+    assetViewData.sort(function(a, b) {
+        return parseFloat(b.sizeDifference) - parseFloat(a.sizeDifference);
+    });
     return assetViewData;
 }
 

@@ -68,13 +68,16 @@ function createModuleView(baselineJsonContents, prJsonContents){
         var module = modules[i].name;
         var sizeDifference = getSize(module, prModulesInfo) - getSize(module, baselineModulesInfo)
         if(sizeDifference !== 0){
-            console.log("module:" + module + ", sizeDifference: " + sizeDifference)
+            // console.log("module:" + module + ", sizeDifference: " + sizeDifference)
         }
         var assetsImpacted = getAssetsImpacted(modules[i], chunksToAssetsMapping, prAssetsInfo)
 
         moduleViewData.push({module:module, sizeDifference:sizeDifference, assetsImpactedCount: assetsImpacted.length, assetsImpactedNames:assetsImpacted})
     }
 
+    moduleViewData.sort(function(a, b) {
+        return parseFloat(b.sizeDifference) - parseFloat(a.sizeDifference);
+    });
     return moduleViewData;
 }
 
