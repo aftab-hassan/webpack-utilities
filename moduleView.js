@@ -40,8 +40,8 @@ var fs = require("fs");
 // console.log(getSize('D:/a/1/s/packages/office-ui-fabric-react/lib-commonjs/Utilities.js', prModulesInfo))
 
 // execution
-var baselineJsonContents = JSON.parse(fs.readFileSync("C:\\GitRepos\\utilities\\test-bundles-baseline.stats.json"));
-var prJsonContents = JSON.parse(fs.readFileSync("C:\\GitRepos\\utilities\\test-bundles-pr.stats.json"));
+var baselineJsonContents = JSON.parse(fs.readFileSync("test-bundles-baseline.stats.json"));
+var prJsonContents = JSON.parse(fs.readFileSync("test-bundles-pr.stats.json"));
 var moduleViewData = createModuleView(baselineJsonContents, prJsonContents)
 // console.log(moduleViewData)
 fs.writeFile('output/moduleViewData.json', JSON.stringify(moduleViewData), function (err) {

@@ -9,8 +9,8 @@ var fs = require("fs");
 // verifyChunkToModulesMapping(prJsonContents, chunkToModulesMapping);
 
 // execution
-var baselineJsonContents = JSON.parse(fs.readFileSync("C:\\GitRepos\\utilities\\test-bundles-baseline.stats.json"));
-var prJsonContents = JSON.parse(fs.readFileSync("C:\\GitRepos\\utilities\\test-bundles-pr.stats.json"));
+var baselineJsonContents = JSON.parse(fs.readFileSync("test-bundles-baseline.stats.json"));
+var prJsonContents = JSON.parse(fs.readFileSync("test-bundles-pr.stats.json"));
 var assetViewData = createAssetView(baselineJsonContents, prJsonContents)
 fs.writeFile('output/assetViewData.json', JSON.stringify(assetViewData), function (err) {
     if (err) 
